@@ -9,14 +9,22 @@ const langMatch = {
 };
 
 async function getShowButton() {
-	const { switchOn } = await chrome.storage.sync.get(["switchOn"]);
-	if (switchOn) {
-		const lang = document.documentElement.lang;
-		const show = langMatch[lang] || "Show";
-		$(
-			`div[role="button"][tabindex="0"]:has(span[style="text-overflow: unset;"]:contains("${show}"))`
-		).trigger("click");
-	}
+	const lang = document.documentElement.lang;
+	const show = langMatch[lang] || "Show";
+	const { nudityOn } = await chrome.storage.sync.get(["nudityOn"]);
+	const { violenceOn } = await chrome.storage.sync.get(["violenceOn"]);
+	const { sensitiveOn } = await chrome.storage.sync.get(["sensitiveOn"]);
+	const btn = $(
+		`div[role="button"][tabindex="0"]:has(span[style="text-overflow: unset;"]:contains("${show}"))`
+	);
+	const triggerBtn = (text) => {
+		if ($(btn).prev().text().includes(text)) {
+			$(btn).trigger("click");
+		}
+	};
+	if (nudityOn) triggerBtn("Nudity");
+	if (violenceOn) triggerBtn("Violence");
+	if (sensitiveOn) triggerBtn("Sensitive");
 }
 
 const observer = new MutationObserver((mutations) => {
