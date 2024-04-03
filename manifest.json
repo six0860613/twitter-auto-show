@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Twitter Auto Show",
+  "version": "1.0.0",
+  "description": "Auto show sensitive content on twitter",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "action": {
+    "default_popup": "popup/index.html"
+  },
+  "icons": {
+    "16": "./32x32.png",
+    "32": "./32x32.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "content/content_script.js",
+        "content/jquery-3.7.1.min.js"
+      ],
+      "matches": [
+        "https://twitter.com/*",
+        "https://x.com/*"
+      ]
+    }
+  ]
+}
