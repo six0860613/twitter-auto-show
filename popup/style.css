@@ -24,6 +24,7 @@
 .switchgroup p {
   font-size: 16px;
   width: 70px;
+  padding-right: 4px;
 }
 
 .switch {
@@ -71,6 +72,11 @@ input:checked+.slider {
 
 input:focus+.slider {
   box-shadow: 0 0 1px #50abf1;
+}
+
+#mediaSwitch:checked+.slider {
+  background-color: #58f150;
+  box-shadow: 0 0 1px #58f150;
 }
 
 input:checked+.slider:before {

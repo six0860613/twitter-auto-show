@@ -12,6 +12,9 @@ This chrome extension can auto show the sensitive content on Twitter(X)
 ## Changelog
 
 ```
+v 1.2.0 (2024.04.06):
+- Feature: Enable on media tab
+
 v 1.1.0 (2024.04.04):
 - Feature: Separate switch buttons to Nudity / Violence / Sensitive
 

@@ -1,33 +1,26 @@
-const $nuditySwitch = document.querySelector("#nuditySwitch");
-const $violenceSwitch = document.querySelector("#violenceSwitch");
-const $sensitiveSwitch = document.querySelector("#sensitiveSwitch");
+const switches = document.querySelectorAll(".switch");
 
-$nuditySwitch.addEventListener("change", (e) => {
-	chrome.storage.sync.set({ nudityOn: e.currentTarget.checked });
-	setTimeout(() => {
-		chrome.tabs.reload();
-	}, 1000);
-});
-$violenceSwitch.addEventListener("change", (e) => {
-	chrome.storage.sync.set({ violenceOn: e.currentTarget.checked });
-	setTimeout(() => {
-		chrome.tabs.reload();
-	}, 1000);
-});
-$sensitiveSwitch.addEventListener("change", (e) => {
-	chrome.storage.sync.set({ sensitiveOn: e.currentTarget.checked });
-	setTimeout(() => {
-		chrome.tabs.reload();
-	}, 1000);
-});
+const switchHandler = (e) => {
+	const key = e.target.id.replace("Switch", "On");
+	const value = e.target.checked;
+	chrome.storage.sync.set({ [key]: value }, () => {
+		setTimeout(() => chrome.tabs.reload(), 1000);
+	});
+};
+
+switches.forEach((el) => el.addEventListener("change", switchHandler));
 
 async function initialize() {
-	const { nudityOn } = await chrome.storage.sync.get(["nudityOn"]);
-	const { violenceOn } = await chrome.storage.sync.get(["violenceOn"]);
-	const { sensitiveOn } = await chrome.storage.sync.get(["sensitiveOn"]);
-	document.querySelector("#nuditySwitch").checked = nudityOn;
-	document.querySelector("#violenceSwitch").checked = violenceOn;
-	document.querySelector("#sensitiveSwitch").checked = sensitiveOn;
+	const storage = await chrome.storage.sync.get([
+		"nudityOn",
+		"violenceOn",
+		"sensitiveOn",
+		"mediaOn",
+	]);
+	Object.keys(storage).forEach((key) => {
+		document.querySelector(`#${key.replace("On", "Switch")}`).checked =
+			storage[key];
+	});
 }
 
 window.onload = () => {

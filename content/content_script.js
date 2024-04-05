@@ -14,6 +14,7 @@ async function getShowButton() {
 	const { nudityOn } = await chrome.storage.sync.get(["nudityOn"]);
 	const { violenceOn } = await chrome.storage.sync.get(["violenceOn"]);
 	const { sensitiveOn } = await chrome.storage.sync.get(["sensitiveOn"]);
+	const { mediaOn } = await chrome.storage.sync.get(["mediaOn"]);
 	const btn = $(
 		`div[role="button"][tabindex="0"]:has(span[style="text-overflow: unset;"]:contains("${show}"))`
 	);
@@ -25,6 +26,10 @@ async function getShowButton() {
 	if (nudityOn) triggerBtn("Nudity");
 	if (violenceOn) triggerBtn("Violence");
 	if (sensitiveOn) triggerBtn("Sensitive");
+	if (mediaOn) {
+		const path = $(location).attr("pathname");
+		if (path.split("/").pop() === "media") $(btn).trigger("click");
+	}
 }
 
 const observer = new MutationObserver((mutations) => {
