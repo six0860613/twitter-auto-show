@@ -1,15 +1,36 @@
 const langMatch = {
-	"zh-Hant": "顯示",
-	zh: "显示",
 	en: "Show",
 	"en-BG": "Show",
+	"zh-Hant": "顯示",
+	zh: "显示",
 	ja: "表示",
 	ko: "표시",
+	ro: "Afișează",
 	de: "Anzeigen",
+	pt: "Mostrar",
+	it: "Mostra",
+	sv: "Visa",
+	sr: "Прикажи",
+	vi: "Hiện",
+	fil: "Ipakita",
+	sk: "Zobraziť",
+	nl: "Weergeven",
+	cs: "Zobrazit",
+	mr: "दाखवा",
+	ms: "Tunjukkan",
+	uk: "Показати",
+	th: "แสดง",
+	nb: "Vis",
+	bg: "Показване",
+	ru: "Показать",
+	ar: "إظهار",
+	"ar-x-fm": "إظهار",
+	fi: "Näytä",
 };
 
 async function getShowButton() {
 	const lang = document.documentElement.lang;
+	console.log(lang);
 	const show = langMatch[lang] || "Show";
 	const { nudityOn } = await chrome.storage.sync.get(["nudityOn"]);
 	const { violenceOn } = await chrome.storage.sync.get(["violenceOn"]);
