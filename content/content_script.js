@@ -26,6 +26,23 @@ const langMatch = {
 	ar: "إظهار",
 	"ar-x-fm": "إظهار",
 	fi: "Näytä",
+	pl: "Pokaż",
+	fa: "نمایش",
+	fr: "Afficher",
+	bn: "দেখান",
+	ta: "காண்பி",
+	el: "Εμφάνιση",
+	he: "הצג",
+	kn: "ತೋರಿಸಿ",
+	hr: "Prikaži",
+	es: "Mostrar",
+	hi: "दिखाएं",
+	id: "Tampilkan",
+	hu: "Megjelenítés",
+	gu: "બતાવો",
+	ca: "Mostra",
+	da: "Vis",
+	tr: "Göster",
 };
 
 async function getShowButton() {

@@ -37,27 +37,30 @@ This chrome extension can auto show the sensitive content on Twitter(X)
 - العربية
 - العربية (مؤنث)
 - suomi
-- 波蘭文 - polski
-- 波斯文 - فارسی
-- 法文 - français
-- 孟加拉文 - বাংলা
-- 坦米爾文 - தமிழ்
-- 希臘文 - Ελληνικά
-- 希伯來文 - עברית
-- 坎那達文 - ಕನ್ನಡ
-- 克羅埃西亞文 - hrvatski
-- 西班牙文 - español
-- 印地文 - हिन्दी
-- 印尼文 - Indonesia
-- 匈牙利文 - magyar
-- 古吉拉特文 - ગુજરાતી
-- 加泰蘭文 - català
-- 丹麥文 - dansk
-- 土耳其文 - Türkçe
+- polski
+- فارسی
+- français
+- বাংলা
+- தமிழ்
+- Ελληνικά
+- עברית
+- ಕನ್ನಡ
+- hrvatski
+- español
+- हिन्दी
+- Indonesia
+- magyar
+- ગુજરાતી
+- català
+- dansk
+- Türkçe
 
 ## Changelog
 
 ```
+v 1.2.1 (2024.04.08):
+- Fix: Add 40 supported languages
+
 v 1.2.0 (2024.04.06):
 - Feature: Enable on media tab
 
