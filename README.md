@@ -58,6 +58,9 @@ This chrome extension can auto show the sensitive content on Twitter(X)
 ## Changelog
 
 ```
+v 1.2.2 (2024.04.10):
+- Fix: Sensitive option include the content which is not classified by author
+
 v 1.2.1 (2024.04.08):
 - Fix: Add 40 supported languages
 

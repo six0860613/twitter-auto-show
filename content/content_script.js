@@ -47,7 +47,6 @@ const langMatch = {
 
 async function getShowButton() {
 	const lang = document.documentElement.lang;
-	console.log(lang);
 	const show = langMatch[lang] || "Show";
 	const { nudityOn } = await chrome.storage.sync.get(["nudityOn"]);
 	const { violenceOn } = await chrome.storage.sync.get(["violenceOn"]);
@@ -59,6 +58,11 @@ async function getShowButton() {
 	const triggerBtn = (text) => {
 		if ($(btn).prev().text().includes(text)) {
 			$(btn).trigger("click");
+		}
+		if (text === "Sensitive") {
+			if ($(btn).prev().children(`svg[aria-hidden="true"]`).length) {
+				$(btn).trigger("click");
+			}
 		}
 	};
 	if (nudityOn) triggerBtn("Nudity");
