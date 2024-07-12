@@ -1,5 +1,6 @@
-# Twitter Auto Show
+# Twitter Auto Show  
 
+Chrome store link: [Twitter Auto Show](https://chromewebstore.google.com/detail/twitter-auto-show/loeblgdildmmgdpfnaocfpaedgmbdfkf)  
 This chrome extension can auto show the sensitive content on Twitter(X)
 
 ## Usage
